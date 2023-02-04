@@ -32,20 +32,6 @@ const Container = styled.div`
         }
       }
     }
-
-    .box {
-      border: none;
-      display: flex;
-      gap: 1rem;
-      
-      input, label {
-        cursor: pointer;
-      }
-
-      #rememberme {
-        width: 1rem;
-      }
-    }
   }
 `;
 
