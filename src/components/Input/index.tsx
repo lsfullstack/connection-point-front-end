@@ -11,7 +11,7 @@ const Input = ({ id, label, placeholder, type }: IInput) => {
   return (
     <Container>
       <label htmlFor={id}>{label}</label>
-      <input id={id} placeholder={placeholder} type={type} />
+      <input id={id} placeholder={placeholder} type={type} autoComplete="off"/>
     </Container>
   );
 }
