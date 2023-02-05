@@ -10,7 +10,7 @@ const Header = () => {
       <img src={logo} alt="logo-connection-point" />
 
       <div className="nav">
-        <Link to="/clientes">Clientes</Link>
+        <Link to="/home">Clientes</Link>
         <Link to="/profile">Perfil</Link>
         <Link to="/login"><RxExit/></Link>
       </div>
