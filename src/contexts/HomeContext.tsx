@@ -26,14 +26,15 @@ interface IHomeContext {
 export const HomeContext = createContext<IHomeContext>({} as IHomeContext);
 
 const HomeProvider = ({ children }: any) => {
-  const { loading } = useContext(AuthContext);
+  const { token, loading } = useContext(AuthContext);
   const [ registerState, setRegisterState ] = useState<boolean>(false);
   const [ clientsList, setClientsList ] = useState<IClient[]>([] as IClient[]);
   const [ menu, setMenu ] = useState<boolean>(false);
 
   useEffect(() => {
-    api.get('/clients').then(res => setClientsList(res.data))
-  }, [loading, registerState]);
+    token !== "" && api.get('/clients').then(res => setClientsList(res.data));
+
+  }, [token, loading, registerState]);
 
   
   const registerClient = async (data: IClient) => {
