@@ -7,6 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  overflow-x: hidden;
 
   .main {
     width: 90%;

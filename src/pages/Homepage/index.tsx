@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Client from "../../components/Client";
 import Header from "../../components/Header";
 import InfoClient from "../../components/InfoClient";
@@ -6,6 +7,7 @@ import Search from "../../components/Search";
 import Container from "./styles";
 
 const Homepage = () => {
+
   return (
     <Container>
       <Header/>
@@ -19,8 +21,8 @@ const Homepage = () => {
         </div>
         <div className="clients-container">
           <InfoClient/>
+          <Client name="Cliente Padrão" email="clientepadrao@mail.com" phone="24999999999" age={30}/>
 
-          <Client name="Felipe Alves de Oliveira" email="felipe.alves@mail.com" phone="24 99243-9435" age={27} />
         </div>
       </div>
     </Container>
