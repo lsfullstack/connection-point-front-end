@@ -9,7 +9,7 @@ import { HomeContext } from "../../contexts/HomeContext";
 import Container from "./styles";
 
 const Homepage = () => {
-  const { clientsList, menu } = useContext(HomeContext);
+  const { clientsList, menu, setRegisterState } = useContext(HomeContext);
 
   return (
     <Container>
@@ -22,7 +22,7 @@ const Homepage = () => {
             <div className="title">
               <h2>CLIENTES</h2>
               <div className="box">
-                <Register description="CADASTRAR CLIENTE"/>
+                <Register description="CADASTRAR CLIENTE" onClick={() => setRegisterState(true)}/>
                 <Search/>
               </div>
             </div>

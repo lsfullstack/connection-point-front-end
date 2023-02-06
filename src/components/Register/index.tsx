@@ -3,11 +3,12 @@ import { MdAdd } from "react-icons/md";
 
 interface IRegister {
   description: string,
+  onClick: any,
 }
 
-const Register = ({ description }: IRegister) => {
+const Register = ({ description, onClick }: IRegister) => {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <p>{description}</p>
       <div>
         <MdAdd/>
