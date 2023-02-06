@@ -22,6 +22,8 @@ interface IAuthContext {
   registerUser: Function,
   user: any | null,
   loading: boolean,
+  setLoading: any,
+  token: string,
 }
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
@@ -83,6 +85,8 @@ const AuthProvider = ({ children }: any) => {
           registerUser,
           user,
           loading,
+          setLoading,
+          token
         }
       }
     >
