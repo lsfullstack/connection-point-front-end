@@ -7,7 +7,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 
 const Header = () => {
-  const {Logout, user} = useContext(AuthContext);
+  const {logout, user} = useContext(AuthContext);
 
   return (
     <Container>
@@ -16,7 +16,7 @@ const Header = () => {
       <div className="nav">
         <Link to="/home">Clientes</Link>
         <Link to="/profile">{user.name}</Link>
-        <RxExit onClick={() => Logout()}/>
+        <RxExit onClick={() => logout()}/>
       </div>
       <GiHamburgerMenu className="menu"/>
     </Container>
