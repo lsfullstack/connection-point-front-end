@@ -29,6 +29,13 @@ const Container = styled.div`
     
     svg {
       font-size: 1rem;
+      transition: 500ms;
+    }
+
+    :hover {
+      svg {
+        color: var(--red-hover);
+      }
     }
   }
 

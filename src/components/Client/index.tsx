@@ -6,9 +6,11 @@ interface IClient {
   email: string,
   phone: string,
   age: number | string,
+  onClick: any,
+  state: boolean,
 }
 
-const Client = ({ name, email, phone, age }: IClient) => {
+const Client = ({ name, email, phone, age, onClick, state }: IClient) => {
   return (
     <Container>
       <div className="name">
@@ -20,14 +22,14 @@ const Client = ({ name, email, phone, age }: IClient) => {
       </div>
 
       <div className="phone">
-        <p>{phone}</p>
+        <p>{`(${phone.slice(0, 2)}) ${phone.slice(2, 7)}-${phone.slice(7, 11)}`}</p>
       </div>
 
       <div className="age">
         <p>{age} Anos</p>
       </div>
 
-      <div className="open">
+      <div className="open"  onClick={() => onClick(state)}>
         <FaSearch/>
       </div>
     </Container>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
+import CardLarge from "../../components/CardLarge";
 import CardsContainer from "../../components/CardsContainer";
 import Client from "../../components/Client";
 import Form from "../../components/Form";
@@ -25,17 +26,25 @@ interface IRegisterClient {
 }
 
 const Homepage = () => {
-  const { clientsList, menu, registerState, setRegisterState, registerClient } = useContext(HomeContext);
+  const { clientsList, menu, registerState, setRegisterState, registerClient, clientState, setclientState } = useContext(HomeContext);
   const { register, handleSubmit } = useForm<IRegisterClient>();
 
   return (
     <Container>
-
+      {
+        clientState &&
+        <Modal>
+          <CardLarge>
+            <InfoCard description="INFORMAÇÕES BÁSICAS" onClick={setclientState} state={false} />
+            
+          </CardLarge>
+        </Modal>
+      }
       {
         registerState && 
         <Modal>
           <Card>
-            <InfoCard description="CADASTRO DE CLIENTES"/>
+            <InfoCard description="CADASTRO DE CLIENTES"  onClick={setRegisterState} state={false} />
 
             <Form handleSubmit={handleSubmit} formFunction={registerClient}>
               <Input
@@ -92,7 +101,7 @@ const Homepage = () => {
               {
                 clientsList.map(({id, name, email, phone, age}) => {
                   return (
-                    <Client key={id} name={name} email={email} phone={phone} age={age}/>
+                    <Client key={id} name={name} email={email} phone={phone} age={age} onClick={setclientState} state={true}/>
                   );
                 })
               }

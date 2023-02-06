@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: any) => {
   useEffect(() => {
     const loadUser = async () => {
     
-      if (token) {
+      if (token !== "") {
         try{
           api.defaults.headers.Authorization = `Bearer ${token}`;
 
