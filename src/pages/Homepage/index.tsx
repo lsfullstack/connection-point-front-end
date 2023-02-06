@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
+import CardsContainer from "../../components/CardsContainer";
 import Client from "../../components/Client";
 import Form from "../../components/Form";
 import Header from "../../components/Header";
@@ -85,7 +86,7 @@ const Homepage = () => {
                 <Search/>
               </div>
             </div>
-            <div className="clients-container">
+            <CardsContainer>
               <InfoClient/>
               
               {
@@ -95,7 +96,7 @@ const Homepage = () => {
                   );
                 })
               }
-            </div>
+            </CardsContainer>
           </>
         }
       </div>
