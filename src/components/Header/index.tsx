@@ -5,9 +5,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
+import { HomeContext } from "../../contexts/HomeContext";
 
 const Header = () => {
   const {logout, user} = useContext(AuthContext);
+  const {menu, setMenu} = useContext(HomeContext);
 
   return (
     <Container>
@@ -18,7 +20,7 @@ const Header = () => {
         <Link to="/profile">{user.name}</Link>
         <RxExit onClick={() => logout()}/>
       </div>
-      <GiHamburgerMenu className="menu"/>
+      <GiHamburgerMenu className="menu" onClick={() => menu ? setMenu(false) : setMenu(true)}/>
     </Container>
   );
 }

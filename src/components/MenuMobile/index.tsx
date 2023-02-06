@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 import Container from "./styles"
-import { HomeContext } from "../../contexts/HomeProvider";
+import { HomeContext } from "../../contexts/HomeContext";
 
 const MenuMobile = () => {
-  const {Logout} = useContext(AuthContext);
+  const {logout} = useContext(AuthContext);
   const {setMenu} = useContext(HomeContext);
 
   return (
@@ -18,7 +18,7 @@ const MenuMobile = () => {
       </div>
       <div>
         <Link to="/login" onClick={() => {
-          Logout()
+          logout()
           setMenu(false)
         }} className="logout" >Sair</Link>
       </div>
