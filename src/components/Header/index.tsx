@@ -1,18 +1,22 @@
-import Container from "./styles"
-import logo from "../../assets/logo.png"
-import { RxExit } from "react-icons/rx"
-import { GiHamburgerMenu } from "react-icons/gi"
-import { Link } from "react-router-dom"
+import Container from "./styles";
+import logo from "../../assets/logo.png";
+import { RxExit } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
 const Header = () => {
+  const {Logout, user} = useContext(AuthContext);
+
   return (
     <Container>
       <img src={logo} alt="logo-connection-point" />
 
       <div className="nav">
         <Link to="/home">Clientes</Link>
-        <Link to="/profile">Perfil</Link>
-        <Link to="/login"><RxExit/></Link>
+        <Link to="/profile">{user.name}</Link>
+        <RxExit onClick={() => Logout()}/>
       </div>
       <GiHamburgerMenu className="menu"/>
     </Container>

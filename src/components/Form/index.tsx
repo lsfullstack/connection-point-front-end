@@ -1,8 +1,8 @@
 import Container from "./styles"
 
-const Form = ({ children }: any) => {
+const Form = ({ children, handleSubmit, formFunction }: any) => {
   return (
-    <Container>
+    <Container onSubmit={handleSubmit(formFunction)}>
       {children}
     </Container>
   );

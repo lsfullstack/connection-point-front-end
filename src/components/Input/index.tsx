@@ -5,13 +5,14 @@ interface IInput {
   label: string,
   placeholder: string,
   type: string,
+  register: any,
 }
 
-const Input = ({ id, label, placeholder, type }: IInput) => {
+const Input = ({ id, label, placeholder, type, register }: IInput) => {
   return (
     <Container>
       <label htmlFor={id}>{label}</label>
-      <input id={id} placeholder={placeholder} type={type} autoComplete="off"/>
+      <input id={id} placeholder={placeholder} type={type} autoComplete="off" {...register(id)}/>
     </Container>
   );
 }
