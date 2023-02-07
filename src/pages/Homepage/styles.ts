@@ -30,26 +30,11 @@ const Container = styled.div`
       h2 {
         color: var(--blue);
       }
-
-      .box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-      }
-
     }
 
     @media screen and (min-width: 775px) {
       .title {
         justify-content: space-between;
-
-        .box {
-          flex-direction: row;
-          justify-content: space-between;
-        }
       }
     }
   }

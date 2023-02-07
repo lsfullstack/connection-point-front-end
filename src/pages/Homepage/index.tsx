@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import Box from "../../components/Box";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import CardLarge from "../../components/CardLarge";
 import CardsContainer from "../../components/CardsContainer";
-import Client from "../../components/Client";
+import Person from "../../components/Person";
 import Form from "../../components/Form";
 import Header from "../../components/Header";
+import Info from "../../components/Info";
 import InfoCard from "../../components/InfoCard";
-import InfoClient from "../../components/InfoClient";
+import InfoClient from "../../components/InfoPerson";
 import Input from "../../components/Input";
 import MenuMobile from "../../components/MenuMobile";
 import Modal from "../../components/Modal";
@@ -36,7 +38,20 @@ const Homepage = () => {
         <Modal>
           <CardLarge>
             <InfoCard description="INFORMAÇÕES BÁSICAS" onClick={setclientState} state={false} />
-            
+              <Info name="Cliente Padrão" email="cliente.padrao@mail.com" phone="99999999999" age={30} />
+            <Box>
+              <h2>Contatos</h2>
+              <Register description="ADICIONAR CONTATO" onClick={setRegisterState(false)}/>
+            </Box>
+            <CardsContainer>
+              <InfoClient createdAt={false}/>
+              
+              <Person  name="Contato Padrão" email="contato.padrao@mail.com" phone="99999999999" age={30} state={false} onClick={setRegisterState}  />
+              <Person  name="Contato Padrão" email="contato.padrao@mail.com" phone="99999999999" age={30} state={false} onClick={setRegisterState}  />
+              <Person  name="Contato Padrão" email="contato.padrao@mail.com" phone="99999999999" age={30} state={false} onClick={setRegisterState}  />
+              <Person  name="Contato Padrão" email="contato.padrao@mail.com" phone="99999999999" age={30} state={false} onClick={setRegisterState}  />
+
+            </CardsContainer>
           </CardLarge>
         </Modal>
       }
@@ -90,18 +105,18 @@ const Homepage = () => {
           <>
             <div className="title">
               <h2>CLIENTES</h2>
-              <div className="box">
+              <Box>
                 <Register description="CADASTRAR CLIENTE" onClick={() => setRegisterState(true)}/>
                 <Search/>
-              </div>
+              </Box>
             </div>
             <CardsContainer>
-              <InfoClient/>
+              <InfoClient  createdAt={false}/>
               
               {
                 clientsList.map(({id, name, email, phone, age}) => {
                   return (
-                    <Client key={id} name={name} email={email} phone={phone} age={age} onClick={setclientState} state={true}/>
+                    <Person key={id} name={name} email={email} phone={phone} age={age} onClick={setclientState} state={true}/>
                   );
                 })
               }

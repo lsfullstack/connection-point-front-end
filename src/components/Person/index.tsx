@@ -1,16 +1,18 @@
 import Container from "./styles";
 import { FaSearch } from "react-icons/fa";
 
-interface IClient {
+interface IPerson {
   name: string,
   email: string,
   phone: string,
-  age: number | string,
+  age?: number | string,
+  createdAt?: Date | undefined,
   onClick: any,
   state: boolean,
 }
 
-const Client = ({ name, email, phone, age, onClick, state }: IClient) => {
+const Person = ({ name, email, phone, age, createdAt, onClick, state }: IPerson) => {
+
   return (
     <Container>
       <div className="name">
@@ -26,7 +28,12 @@ const Client = ({ name, email, phone, age, onClick, state }: IClient) => {
       </div>
 
       <div className="age">
-        <p>{age} Anos</p>
+        {
+          age ?
+          <p>{age} Anos</p>
+          :
+          <p>{createdAt?.toDateString()}</p>
+        }
       </div>
 
       <div className="open"  onClick={() => onClick(state)}>
@@ -36,4 +43,4 @@ const Client = ({ name, email, phone, age, onClick, state }: IClient) => {
   );
 }
 
-export default Client;
+export default Person;

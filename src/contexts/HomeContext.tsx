@@ -39,7 +39,6 @@ const HomeProvider = ({ children }: any) => {
 
   }, [token, loading, registerState]);
 
-  
   const registerClient = async (data: IClient) => {
     const {name, email, phone, age} = data;
     await api.post("/clients", {name, email, phone, age}).then(() => setRegisterState(false));

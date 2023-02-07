@@ -14,9 +14,6 @@ const MenuMobile = () => {
         <Link to="/home" onClick={() => setMenu(false)}>Clientes</Link>
       </div>
       <div>
-        <Link to="/profile" onClick={() => setMenu(false)}>Perfil</Link>
-      </div>
-      <div>
         <Link to="/login" onClick={() => {
           logout()
           setMenu(false)

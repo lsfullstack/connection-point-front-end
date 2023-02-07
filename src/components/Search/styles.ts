@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  width: 18.25rem;
+  justify-content: center;
+  width: 100%;
 
   input {
     padding: 0.5rem;
@@ -13,6 +14,8 @@ const Container = styled.div`
     border-right: none;
     width: 16rem;
     font-size: 1.2rem;
+    width: 100%;
+    max-width: 15rem;
     
     :focus {
       border-top: solid 2px var(--blue);
