@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { HomeContext } from "../../contexts/HomeContext";
 
 const Header = () => {
-  const {logout, user} = useContext(AuthContext);
+  const {logout} = useContext(AuthContext);
   const {menu, setMenu} = useContext(HomeContext);
 
   return (
@@ -17,7 +17,6 @@ const Header = () => {
 
       <div className="nav">
         <Link to="/home">Clientes</Link>
-        <Link to="/profile">{user.name}</Link>
         <RxExit onClick={() => logout()}/>
       </div>
       <GiHamburgerMenu className="menu" onClick={() => menu ? setMenu(false) : setMenu(true)}/>

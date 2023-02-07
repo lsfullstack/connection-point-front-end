@@ -21,6 +21,8 @@ interface IHomeContext {
   setClientsList: any,
   menu: boolean,
   setMenu: any,
+  clientState: boolean,
+  setclientState: any,
 }
 
 export const HomeContext = createContext<IHomeContext>({} as IHomeContext);
@@ -28,6 +30,7 @@ export const HomeContext = createContext<IHomeContext>({} as IHomeContext);
 const HomeProvider = ({ children }: any) => {
   const { token, loading } = useContext(AuthContext);
   const [ registerState, setRegisterState ] = useState<boolean>(false);
+  const [ clientState, setclientState ] = useState<boolean>(false);
   const [ clientsList, setClientsList ] = useState<IClient[]>([] as IClient[]);
   const [ menu, setMenu ] = useState<boolean>(false);
 
@@ -36,7 +39,6 @@ const HomeProvider = ({ children }: any) => {
 
   }, [token, loading, registerState]);
 
-  
   const registerClient = async (data: IClient) => {
     const {name, email, phone, age} = data;
     await api.post("/clients", {name, email, phone, age}).then(() => setRegisterState(false));
@@ -57,6 +59,8 @@ const HomeProvider = ({ children }: any) => {
         setClientsList,
         menu,
         setMenu,
+        clientState,
+        setclientState,
       }
     }
   >

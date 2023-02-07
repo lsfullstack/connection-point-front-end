@@ -1,19 +1,18 @@
-import { useContext } from "react";
 import { MdClose } from "react-icons/md";
-import { HomeContext } from "../../contexts/HomeContext";
 import Container from "./styles"
 
 interface IInfoCard {
   description: string,
+  onClick: any,
+  state: boolean,
 }
 
-const InfoCard = ({description}: IInfoCard) => {
-  const { setRegisterState } = useContext(HomeContext);
+const InfoCard = ({description, onClick, state}: IInfoCard) => {
 
   return (
     <Container>
       <p>{description}</p>
-      <MdClose onClick={() => setRegisterState(false)}/>
+      <MdClose onClick={() => onClick(state)}/>
     </Container>
   );
 }

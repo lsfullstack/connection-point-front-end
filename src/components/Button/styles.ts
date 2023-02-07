@@ -18,6 +18,8 @@ const Container = styled.button.attrs((props: PropTypeBg) => ({
   font-weight: 500;
   transition: 500ms;
   box-shadow: 0px 4px 4px var(--grey-3);
+  min-width: 7rem;
+  max-width: 25rem;
 
   :hover {
     background-color: var(${(props) => props.hover && props.hover});
